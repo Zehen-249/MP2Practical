@@ -45,7 +45,7 @@ solOdeintCharging=it.odeint(diff_equ_charging,Y_diff_charging[0],t_array)       
 #Discharging of Capacitor
 Y_diff_discharging=np.zeros(len(t_array))   #Initializing array for values of dependent variable(Euler's method)
 Y_Exact_discharging=np.zeros(len(t_array))  #Initializing array for values of dependent variable(Solution equation)
-Y_Exact_discharging[0] = Y_diff_discharging[0] = Qmax   #Initial values of dependent variable Y at dependent variable t=0 
+Y_Exact_discharging[0] = Y_diff_discharging[0] = Qmax   #Initial values of dependent variable Y at independent variable t=0 
 for i in range(len(t_array)-1):                          # #updating values of dependent variable
     Y_diff_discharging[i+1]=Y_diff_discharging[i] + h*(diff_equ_discharging(Y_diff_discharging[i],t_array[i]))       #Euler's Method
     Y_Exact_discharging[i+1]=Exact_equ_discharging(t_array[i+1])                                                     #Solution Equation

@@ -41,7 +41,7 @@ yPointsCurrent[0]=I0                              # initializing Initial value f
 for i in range(len(time_array)-1):      # updating the array of zeros with help of euler's method and solution equation
     yPointsCurrent[i+1]=yPointsCurrent[i]+h*RC.current(yPointsCurrent[i],time_array[i])      #Euler's Method
     yPointsCurrentExact[i]=RC.current_exact(time_array[i])                     # Solution Equation
-solOdeintYPointsCurrent=it.odeint(RC.current,I0,time_array)
+solOdeintYPointsCurrent=it.odeint(RC.current,I0,time_array)             #odeint solution
 
 #   Voltage across resistor v/s time
 Vr0=V
@@ -51,7 +51,7 @@ yPointsVr[0]=Vr0                            # initializing Initial value for eul
 for i in range(len(time_array)-1):      # updating the array of zeros with help of euler's method and solution equation
     yPointsVr[i+1]=yPointsVr[i]+h*RC.Vr(yPointsVr[i],time_array[i])      #Euler's Method
     yPointsVrExact[i]=RC.VrExact(time_array[i])                     # Solution Equation
-solOdeintYPointsVr=it.odeint(RC.Vr,Vr0,time_array)
+solOdeintYPointsVr=it.odeint(RC.Vr,Vr0,time_array)           #odeint solution
 
 #   Voltage across capacitor v/s time
 Vc0=0
@@ -61,7 +61,7 @@ yPointsVc[0]=Vc0                              # initializing Initial value for e
 for i in range(len(time_array)-1):      # updating the array of zeros with help of euler's method and solution equation
     yPointsVc[i+1]=yPointsVc[i]+h*RC.Vc(yPointsVc[i],time_array[i])      #Euler's Method
     yPointsVcExact[i+1]=RC.VcExact(time_array[i+1])                     # Solution Equation
-solOdeintYPointsVc=it.odeint(RC.Vc,Vc0,time_array)
+solOdeintYPointsVc=it.odeint(RC.Vc,Vc0,time_array)               #odeint solution
 
 # plot of I v/s t
 plt.subplot(3,2,1)
