@@ -1,4 +1,4 @@
-# Euler's method 
+#To Solve First Order Differential Equation by Euler Method and compare it with Exact Solution and Inbuilt Function.
 
 # import libraries
 import math

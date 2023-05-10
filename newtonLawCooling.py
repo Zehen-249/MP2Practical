@@ -1,4 +1,4 @@
-# plot newton's law of cooling using euler's method and verify with the solution equation
+# To Plot Newton's cooling law ODE by Euler method, Exact solution & Inbuilt solver. 
 
 #libraries
 import matplotlib.pyplot as plt

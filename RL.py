@@ -1,5 +1,4 @@
-
-
+#To Plot Current in RL circuit ODE with DC source by Euler Method, Exact solution, Inbuilt solver.
 
 #importing libraries to be used
 import matplotlib.pyplot as plt
@@ -38,8 +37,6 @@ solOdeintYPointsCurrent=it.odeint(diffEquation,I0,time_array)             #odein
 # plot of I v/s t
 plt.subplot(1,3,1)
 plt.plot(time_array,yPointsCurrent,color='red',label="I Euler")
-plt.plot(time_array,solOdeintYPointsCurrent, color='green',label="I odeint")
-plt.plot(time_array,yPointsCurrentExact, color='blue',label="I exact")
 plt.xlabel('Time(s)')
 plt.ylabel('Current(amps)')
 plt.title("Current v/s time Euler's")

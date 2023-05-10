@@ -1,4 +1,4 @@
-#plot Radioactive Decay using euler's method and verify it by ploting solution equation and odeint solution
+#To Plot Radioactive Decay ODE by Euler method, Exact solution & Inbuilt solver.
 
 #importing libraries
 import matplotlib.pyplot as plt

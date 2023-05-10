@@ -1,4 +1,6 @@
-#plot Charging and Discharging of Capacitor in  RC Circuit usin Euler's method and verify it by ploting Solution equation and sol of odeint function
+#To Plot Current in RC circuit ODE with DC source by Euler Method, Exact solution, Inbuilt solver.
+#To Plot Discharging of a capacitor in RC circuit ODE with DC source by Euler Method, Exact solution, Inbuilt solver. 
+
 
 #importing libraries
 import matplotlib.pyplot as plt

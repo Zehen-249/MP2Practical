@@ -1,5 +1,4 @@
-#RC CIRCUIT plot Current v/s time, Voltage across resistor v/s time, Voltage across capacitor v/s time using Euler's meethod and 
-# verify it by plotting exact solution equation
+#To Plot Current in RC circuit ODE with DC source by Euler Method, Exact solution, Inbuilt solver.
 
 
 #importing libraries to be used
