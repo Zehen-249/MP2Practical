@@ -1,5 +1,6 @@
-#To Plot Current in RC circuit ODE with DC source by Euler Method, Exact solution, Inbuilt solver.
+# Mehendi Hasan B.SC.(H) Physics 2230248
 
+#To Plot Current in RC circuit ODE with DC source by Euler Method, Exact solution, Inbuilt solver.
 
 #importing libraries to be used
 import matplotlib.pyplot as plt
@@ -20,7 +21,7 @@ class RC:                   # Created a class of RC Circuit which have multiple 
     def VcExact(t):          # Voltage across capacitor v/s time graph by ploting the solution equation of ODE
         return  V*(1-(np.exp((-t)/(R*C))))
     
-print("Mehendi Hasan\n\nRC Circuit\n\n")
+print("\n\n\tMehendi Hasan\n\n\t2230248\n\nRC Circuit\n\n")
 print("Capacitance is in Farad, resistance is in ohm,time is in second,charge in coulomb,voltage in volts.\n\n")
 
 

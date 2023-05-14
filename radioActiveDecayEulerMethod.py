@@ -1,3 +1,5 @@
+# Mehendi Hasan B.SC.(H) Physics 2230248
+
 #To Plot Radioactive Decay ODE by Euler method, Exact solution & Inbuilt solver.
 
 #importing libraries
@@ -11,7 +13,7 @@ def diff_Equ(N,t):      #dfferential equation of Radio activee decay
 def Exact_Equ(N,t):     #solution equation of Radio activee decay
     return N0*(np.exp((-1)*(K)*(t)))    # N0 is the number of parent atoms at t=0
 
-print("\n\nMehendi Hasan\n\nRadioactive Decay \n\nTime is in Seconds\n")
+print("\n\n\tMehendi Hasan\n\n\t2230248\n\nRadioactive Decay \n\nTime is in Seconds\n")
 
 
 #itaking input from user
@@ -34,16 +36,16 @@ solOdeint=it.odeint(diff_Equ,N0,t_array)                                        
 plt.subplot(3,1,1)
 plt.plot(t_array,Y_differential,color="green",label="Euler's Solution")
 plt.xlabel("Time (Second)")
-plt.ylabel("Number of Remaining Atoms")
+plt.ylabel("No. of parent Atoms")
 plt.legend()
 plt.subplot(3,1,2)
 plt.plot(t_array,Y_Exact,color="red",label='Exact Equation Solution')
 plt.xlabel("Time (Second)")
-plt.ylabel("Number of Remaining Atoms")
+plt.ylabel("No. of parent Atoms")
 plt.legend()
 plt.subplot(3,1,3)
 plt.plot(t_array,solOdeint,color="blue",label='Odeint Solution')
 plt.xlabel("Time (Second)")
-plt.ylabel("Number of Remaining Atoms")
+plt.ylabel("No. of parent Atoms")
 plt.legend()
 plt.show()

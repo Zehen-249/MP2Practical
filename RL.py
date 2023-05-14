@@ -1,3 +1,4 @@
+# Mehendi Hasan B.SC.(H) Physics 2230248
 #To Plot Current in RL circuit ODE with DC source by Euler Method, Exact solution, Inbuilt solver.
 
 #importing libraries to be used
@@ -11,7 +12,7 @@ def diffEquation(i,t):
 def solEquation(i,t):
     return (V/R)*(1-(np.exp((((-1)*R)*t)/L)))
 
-print("\n\nMehendi Hasan\n\nVariation of curent with time in RL Circuit \n\n")
+print("\n\n\tMehendi Hasan\n\n\t2230248\n\nVariation of curent with time in RL Circuit \n\n")
 print("Resistance is in ohm,time is in second,Inductance in henry,voltage in volts.\n\n")
 
 #taking inputs from user for the terms envoled in equations

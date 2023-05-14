@@ -1,3 +1,5 @@
+# Mehendi Hasan B.SC.(H) Physics 2230248
+
 #To Solve First Order Differential Equation by Euler Method and compare it with Exact Solution and Inbuilt Function.
 
 # import libraries
@@ -9,6 +11,8 @@ tb=PrettyTable()
 
 def f(x):         #Eqution to solve
     return math.exp(x)
+print("\n\n\tMehendi Hasan\n\n\t2230248\n\n")
+
 
 #initial values
 x0=float(input("Enter Initial value of X: "))

@@ -1,3 +1,5 @@
+# Mehendi Hasan B.SC.(H) Physics 2230248
+
 #To Plot Current in RC circuit ODE with DC source by Euler Method, Exact solution, Inbuilt solver.
 #To Plot Discharging of a capacitor in RC circuit ODE with DC source by Euler Method, Exact solution, Inbuilt solver. 
 
@@ -19,7 +21,7 @@ def diff_equ_discharging(q,t):  # Differential Equation of Discharging
 def Exact_equ_discharging(t):       #Solution equation of Differential Equation of Discharging
     return ((C*E)*(np.exp(((-1)*t)/(R*C))))
 
-print("\n\nMehendi Hasan\n\nRC Circuit Charging and Discharging of Capacitor\n\n")
+print("\n\n\tMehendi Hasan\n\n\t2230248\n\nRC Circuit Charging and Discharging of Capacitor\n\n")
 print("Capacitance is in Farad, resistance is in ohm,time is in second,charge in coulomb,voltage in volts.\n\n")
 
 #taking inputs from user for the terms envoled in equations
@@ -65,7 +67,7 @@ plt.subplot(3,2,4)
 plt.plot(t_array,Y_Exact_charging,color='red',label="Charge")
 plt.xlabel("Time")
 plt.ylabel("Charge at Capacitor")
-plt.title("Exact Equation Solution of Charging")
+plt.title("Exact Equation of Charging")
 plt.legend()
 plt.subplot(3,2,1)
 plt.plot(t_array,Y_diff_discharging,color='orange',label="Charge")
@@ -77,7 +79,7 @@ plt.subplot(3,2,3)
 plt.plot(t_array,Y_Exact_discharging,color='green',label="Charge")
 plt.xlabel("Time")
 plt.ylabel("Charge at Capacitor")
-plt.title("Exact Equation Solution of Discharging")
+plt.title("Exact Equation of Discharging")
 plt.legend()
 plt.subplot(3,2,6)
 plt.plot(t_array,solOdeintCharging,color='orange',label="Charge")
