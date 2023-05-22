@@ -56,6 +56,7 @@ plt.xlabel('Time(s)')
 plt.ylabel("(volts)")
 plt.title("Current v/s time Odeint Solution equation")
 plt.grid('true')
+plt.suptitle("Mehendi Hasan B.SC.(H) Physics 2230248\nTo Plot Current in RL circuit ODE with DC source by Euler Method, Exact solution, Inbuilt solver.")
 plt.legend()
 
 

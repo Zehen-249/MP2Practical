@@ -1,7 +1,6 @@
 # Mehendi Hasan B.SC.(H) Physics 2230248
 
-#To Plot Current in RC circuit ODE with DC source by Euler Method, Exact solution, Inbuilt solver.
-#To Plot Discharging of a capacitor in RC circuit ODE with DC source by Euler Method, Exact solution, Inbuilt solver. 
+#To Plot Charging and Discharging of a capacitor in RC circuit ODE with DC source by Euler Method, Exact solution, Inbuilt solver. 
 
 
 #importing libraries
@@ -93,6 +92,6 @@ plt.xlabel("Time")
 plt.ylabel("Charge at Capacitor")
 plt.title("Odeint Solution of Discharging")
 plt.legend()
-
+plt.suptitle("Mehendi Hasan B.SC.(H) Physics 2230248\nTo Plot Charging and Discharging of a capacitor in RC circuit ODE with DC source by Euler Method, Exact solution, Inbuilt solver")
 
 plt.show()
