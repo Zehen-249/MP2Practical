@@ -1,6 +1,6 @@
 # Mehendi Hasan B.SC.(H) Physics 2230248
 
-#To Plot Charging and Discharging of a capacitor in RC circuit ODE with DC source by Euler Method, Exact solution, Inbuilt solver. 
+#To Plot Charging and Discharging of a capacitor in RC circuit ODE with DC source by RK4 Method, Exact solution, Inbuilt solver. 
 
 
 #importing libraries
@@ -37,21 +37,31 @@ t_array=np.arange(0,t+h,h)      #initializing time array(independent Variable)
 
 
 #Charging of Capacitor
-Y_diff_charging=np.zeros(len(t_array))      #Initializing array for values of dependent variable(Euler's method)
+Y_diff_charging=np.zeros(len(t_array))      #Initializing array for values of dependent variable(RK4's method)
 Y_Exact_charging=np.zeros(len(t_array))     #Initializing array for values of dependent variable(Solution equation)
 Y_Exact_charging[0] = Y_diff_charging[0] = 0    #Initial values of dependent variable Y at dependent variable t=0 
 for i in range(len(t_array)-1):                 #updating values of dependent variable
-    Y_diff_charging[i+1]=Y_diff_charging[i] + h*(diff_equ_charging(Y_diff_charging[i],t_array[i]))      #Euler's Method
+    k1=h*diff_equ_charging(Y_diff_charging[i],t_array[i])
+    k2=h*diff_equ_charging(Y_diff_charging[i]+(k1/2),t_array[i]+(h/2))
+    k3=h*diff_equ_charging(Y_diff_charging[i]+(k2/2),t_array[i]+(h/2))
+    k4=h*diff_equ_charging(Y_diff_charging[i]+(k3),t_array[i]+(h))
+    delY=(1/6)*(k1+(2*k2)+(2*k3)+k4)
+    Y_diff_charging[i+1]=Y_diff_charging[i]+delY
 Y_Exact_charging=Exact_equ_charging(t_array)                                              #Solution Equation
 solOdeintCharging=it.odeint(diff_equ_charging,Y_diff_charging[0],t_array)       #Odeint solution
 
 #Discharging of Capacitor
-Y_diff_discharging=np.zeros(len(t_array))   #Initializing array for values of dependent variable(Euler's method)
+Y_diff_discharging=np.zeros(len(t_array))   #Initializing array for values of dependent variable(RK4's method)
 Y_Exact_discharging=np.zeros(len(t_array))  #Initializing array for values of dependent variable(Solution equation)
 Y_Exact_discharging[0] = Y_diff_discharging[0] = Qmax   #Initial values of dependent variable Y at independent variable t=0 
 for i in range(len(t_array)-1):                          # #updating values of dependent variable
-    Y_diff_discharging[i+1]=Y_diff_discharging[i] + h*(diff_equ_discharging(Y_diff_discharging[i],t_array[i]))       #Euler's Method
-    Y_Exact_discharging[i+1]=Exact_equ_discharging(t_array[i+1])                                                     #Solution Equation
+    k1=h*diff_equ_discharging(Y_diff_discharging[i],t_array[i])
+    k2=h*diff_equ_discharging(Y_diff_discharging[i]+(k1/2),t_array[i]+(h/2))
+    k3=h*diff_equ_discharging(Y_diff_discharging[i]+(k2/2),t_array[i]+(h/2))
+    k4=h*diff_equ_discharging(Y_diff_discharging[i]+(k3),t_array[i]+(h))
+    delY=(1/6)*(k1+(2*k2)+(2*k3)+k4)
+    Y_diff_discharging[i+1]=Y_diff_discharging[i]+delY
+Y_Exact_discharging=Exact_equ_discharging(t_array)                                                   #Solution Equation
 solOdeintDischarging=it.odeint(diff_equ_discharging,Y_diff_discharging[0],t_array)                                   #Odeint solution
 
 
@@ -61,7 +71,7 @@ plt.plot(t_array,Y_diff_charging,color='blue',label="Charge")
 plt.grid()
 plt.xlabel("Time")
 plt.ylabel("Charge at Capacitor")
-plt.title("Euler's Solution of Charging")
+plt.title("RK4's Solution of Charging")
 plt.legend()
 plt.subplot(3,2,4)
 plt.plot(t_array,Y_Exact_charging,color='red',label="Charge")
@@ -75,7 +85,7 @@ plt.plot(t_array,Y_diff_discharging,color='orange',label="Charge")
 plt.grid()
 plt.xlabel("Time")
 plt.ylabel("Charge at Capacitor")
-plt.title("Euler's Solution of Discharging")
+plt.title("RK4's Solution of Discharging")
 plt.legend()
 plt.subplot(3,2,3)
 plt.plot(t_array,Y_Exact_discharging,color='green',label="Charge")
@@ -98,6 +108,6 @@ plt.xlabel("Time")
 plt.ylabel("Charge at Capacitor")
 plt.title("Odeint Solution of Discharging")
 plt.legend()
-plt.suptitle("Mehendi Hasan B.SC.(H) Physics 2230248\nTo Plot Charging and Discharging of a capacitor in RC circuit ODE with DC source by Euler Method, Exact solution, Inbuilt solver")
+plt.suptitle("Mehendi Hasan B.SC.(H) Physics 2230248\nTo Plot Charging and Discharging of a capacitor in RC circuit ODE with DC source by RK4 Method, Exact solution, Inbuilt solver")
 
 plt.show()

@@ -1,5 +1,5 @@
 # Mehendi Hasan B.SC.(H) Physics 2230248
-#To Plot Current in RL circuit ODE with DC source by Euler Method, Exact solution, Inbuilt solver.
+#To Plot Current in RL circuit ODE with DC source by RK4 Method, Exact solution, Inbuilt solver.
 
 #importing libraries to be used
 import matplotlib.pyplot as plt
@@ -26,37 +26,42 @@ time_array=np.arange(0,t+h,h)       # X-coordinate (time)
 
 #   Current v/s time
 I0=0      #current in circuit at t=0
-yPointsCurrent=np.zeros(len(time_array))       #initializing Y-coordinates as array of zeros of lenght time array(Euler method )
+yPointsCurrent=np.zeros(len(time_array))       #initializing Y-coordinates as array of zeros of lenght time array(RK4 method )
 yPointsCurrentExact=np.zeros(len(time_array))     #initializing Y-coordinates as array of zeros of lenght time array(solution Equation)
 yPointsCurrent[0]=I0 
 yPointsCurrentExact[0]=I0                             # initializing Initial value for euler's method
 for i in range(len(time_array)-1):      # updating the array of zeros with help of euler's method and solution equation
-    yPointsCurrent[i+1]=yPointsCurrent[i]+h*diffEquation(yPointsCurrent[i],time_array[i])      #Euler's Method
+    k1=h*diffEquation(yPointsCurrent[i],time_array[i])
+    k2=h*diffEquation(yPointsCurrent[i]+(k1/2),time_array[i]+(h/2))
+    k3=h*diffEquation(yPointsCurrent[i]+(k2/2),time_array[i]+(h/2))
+    k4=h*diffEquation(yPointsCurrent[i]+(k3),time_array[i]+(h))
+    delY=(1/6)*(k1+(2*k2)+(2*k3)+k4)
+    yPointsCurrent[i+1]=yPointsCurrent[i]+delY
 yPointsCurrentExact=solEquation(yPointsCurrentExact,time_array)                     # Solution Equation
 solOdeintYPointsCurrent=it.odeint(diffEquation,I0,time_array)             #odeint solution
 
 # plot of I v/s t
 plt.subplot(1,3,1)
-plt.plot(time_array,yPointsCurrent,color='red',label="I Euler")
+plt.plot(time_array,yPointsCurrent,color='red',label="I RK4")
 plt.xlabel('Time(s)')
-plt.ylabel('Current(amps)')
-plt.title("Current v/s time Euler's")
+plt.ylabel("Current(Ampere)")
+plt.title("Current v/s time RK4's")
 plt.grid('true')
 plt.legend()
 plt.subplot(1,3,2)
-plt.plot(time_array,yPointsCurrentExact, color='blue',label="I")
+plt.plot(time_array,yPointsCurrentExact, color='blue',label="I exact")
 plt.xlabel('Time(s)')
-plt.ylabel('Current(amps)')
+plt.ylabel("Current(Ampere)")
 plt.title("Current v/s time Solution Equation")
 plt.grid('true')
 plt.legend()
 plt.subplot(1,3,3)
-plt.plot(time_array,solOdeintYPointsCurrent, color='green',label="Current")
+plt.plot(time_array,solOdeintYPointsCurrent, color='green',label="I ODEINT")
 plt.xlabel('Time(s)')
-plt.ylabel("(volts)")
+plt.ylabel("Current(Ampere)")
 plt.title("Current v/s time Odeint Solution equation")
 plt.grid('true')
-plt.suptitle("Mehendi Hasan B.SC.(H) Physics 2230248\nTo Plot Current in RL circuit ODE with DC source by Euler Method, Exact solution, Inbuilt solver.")
+plt.suptitle("Mehendi Hasan B.SC.(H) Physics 2230248\nTo Plot Current in RL circuit ODE with DC source by RK4 Method, Exact solution, Inbuilt solver.")
 plt.legend()
 
 

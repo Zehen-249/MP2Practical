@@ -33,8 +33,10 @@ y_odeint[0]=y0
 y_exact[0]=y0
 for i in range(len(x_values)-1):
     k1=h*f(y_values[i],x_values[i])
-    k2=h*f(y_values[i]+k1,x_values[i]+h)
-    delY=0.5*(k1+k2)
+    k2=h*f(y_values[i]+(k1/2),x_values[i]+(h/2))
+    k3=h*f(y_values[i]+(k2/2),x_values[i]+(h/2))
+    k4=h*f(y_values[i]+(k3),x_values[i]+(h))
+    delY=(1/6)*(k1+(2*k2)+(2*k3)+k4)
     y_values[i+1]=y_values[i]+delY
 y_exact=f_exact(y_exact,x_values)
 y_odeint=odeint(f,y0,x_values)
@@ -56,7 +58,6 @@ plt.plot(x_values,y_odeint,label="Odeint solution")
 plt.xlabel("X Points")
 plt.ylabel("Y Points")
 plt.legend()
-plt.suptitle("Mehendi Hasan B.SC.(H) Physics 2230248\nTo Solve First Order Differential Equation by RK2 Method and compare it with Exact Solution and Inbuilt Function.")
 plt.show()
 
 
