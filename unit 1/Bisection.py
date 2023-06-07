@@ -1,30 +1,32 @@
-import numpy as np
 import matplotlib.pyplot as plt
+import numpy as np
+def bisection_method(f, a, b, tolerance=1e-6, max_iterations=100000):
+    x=[]
+    y=[]
+    if f(a) * f(b) >= 0:
+        raise ValueError("The function must have opposite signs at the endpoints of the interval.")
 
+    for iteration in range(1, max_iterations + 1):
+        c = (a + b) / 2
+        x.append(c)
+        y.append(f(c))
+        if f(c) == 0 or abs(b - a) / 2 < tolerance:
+            plt.plot(x,y,"r--")
+            plt.plot(x[-1],0,marker="o",label="root")
+            plt.legend()
+            plt.show()
+            print(x)
+            return c
+        
+        if f(c) * f(a) < 0:
+            b = c
+        else:
+            a = c
+    raise RuntimeError("The method did not converge within the maximum number of iterations.")
+
+# Example usage
 def f(x):
-    return x**3 +5*x
+    return np.sin(x)
 
-a=float(input("Enter a: "))
-b=float(input("Enter b: "))
-if f(a)*f(b)<0:
-    mid=(a+b)/2
-    x=[mid]
-    y=[f(mid)]
-    while(f(x[-1])!=0):
-        if (f(x[-1])*f(a)<0):
-            b=mid
-            mid=(a+b)/2
-            x.append(mid)
-            y.append(f(mid))
-        elif (f(x[-1])*f(b)<0):
-            a=mid
-            mid=(a+b)/2
-            x.append(mid)
-            y.append(f(mid))
-    else:
-        root = x[-1]
-    plt.plot(x,y)
-    plt.plot(root,f(root),marker="o")
-    plt.show()
-else:
-    print("The Values of a and b are not suitable for this method")
+root = bisection_method(f,2*np.pi/3, -(np.pi/2))
+print("Approximate root:", root)
